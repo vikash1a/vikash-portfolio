@@ -10,10 +10,10 @@
     "bio": "Identity and payments engineer with 6+ years building high-scale backend systems across healthtech and fintech. Focused on auth, data migration, and platform reliability."
   },
   "skills": [
-    { "label": "Languages",      "items": ["Kotlin", "Java", "TypeScript", "C++", "C#"] },
+    { "label": "Languages",      "items": ["Kotlin", "Java", "TypeScript", "Python", "C++", "C#"] },
     { "label": "Databases",      "items": ["DynamoDB", "PostgreSQL"] },
-    { "label": "Cloud & Infra",  "items": ["AWS", "Pinpoint", "EUS", "SES", "EventBridge", "Apache Pulsar", "Apache Camel"] },
-    { "label": "Identity & Auth","items": ["Okta", "OAuth 2.0", "SSO", "RLS", "MFA"] },
+    { "label": "Cloud & Infra",  "items": ["AWS", "Pinpoint", "EUS", "SES", "EventBridge", "Terraform", "Apache Pulsar", "Apache Camel"] },
+    { "label": "Identity & Auth","items": ["Okta", "OAuth 2.0", "SSO", "RLS", "MFA", "FGA"] },
     { "label": "Observability",  "items": ["New Relic", "Datadog", "Splunk", "Sentry", "CloudWatch"] },
     { "label": "Engineering",    "items": ["System Design", "Design Patterns", "Distributed Systems"] },
     { "label": "Tooling",        "items": ["Jira", "Confluence", "Opsgenie"] }
