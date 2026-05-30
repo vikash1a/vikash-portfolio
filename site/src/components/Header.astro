@@ -1,0 +1,75 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<header>
+  <div class="container">
+    <div class="hero">
+      <h1>Vikash Sinha</h1>
+      <p class="title">Senior Software Engineer</p>
+      <p class="location">Bengaluru, Karnataka</p>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href={`${base}Resume_Vikash_Sinha.pdf`} class="resume-btn" target="_blank" rel="noopener">Resume PDF</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    padding: 3rem 0 2rem;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+  }
+  .title {
+    font-size: 1.1rem;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .location {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+  }
+  nav a {
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: color 0.15s;
+  }
+  nav a:hover { color: var(--text); text-decoration: none; }
+  .resume-btn {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    color: var(--accent-light) !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+  }
+  .resume-btn:hover {
+    background: var(--accent);
+    color: #fff !important;
+  }
+</style>
