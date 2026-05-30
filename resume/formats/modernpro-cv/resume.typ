@@ -11,7 +11,7 @@
   pagecount: "false",
   date: "2026-05-31",
   contacts: (
-    (text: d.personal.location, link: ""),
+    (text: d.personal.location, link: "https://maps.google.com/?q=" + d.personal.location),
     (text: d.personal.phone,    link: "tel:" + d.personal.phone.replace(" ", "")),
     (text: d.personal.email,    link: "mailto:" + d.personal.email),
     (text: d.personal.linkedin, link: "https://" + d.personal.linkedin),
