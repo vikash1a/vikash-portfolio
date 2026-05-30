@@ -1,5 +1,7 @@
 # build output
 dist/
+# generated from resume/data.json — do not edit directly
+src/data/resume.json
 # generated types
 .astro/
 

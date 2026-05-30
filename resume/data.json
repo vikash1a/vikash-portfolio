@@ -1,0 +1,106 @@
+{
+  "personal": {
+    "name": "Vikash Sinha",
+    "title": "Senior Software Engineer",
+    "location": "Bengaluru, Karnataka",
+    "email": "vikash1a2b3c@gmail.com",
+    "phone": "+91 8789246572",
+    "linkedin": "linkedin.com/in/vikash-sinha-583124151",
+    "linkedinId": "vikash-sinha-583124151",
+    "bio": "Identity and payments engineer with 6+ years building high-scale backend systems across healthtech and fintech. Focused on auth, data migration, and platform reliability."
+  },
+  "skills": [
+    { "label": "Languages",      "items": ["Kotlin", "Java", "TypeScript", "C++", "C#"] },
+    { "label": "Databases",      "items": ["DynamoDB", "PostgreSQL"] },
+    { "label": "Cloud & Infra",  "items": ["AWS", "Pinpoint", "EUS", "SES", "EventBridge", "Apache Pulsar", "Apache Camel"] },
+    { "label": "Identity & Auth","items": ["Okta", "OAuth 2.0", "SSO", "RLS", "MFA"] },
+    { "label": "Observability",  "items": ["New Relic", "Datadog", "Splunk", "Sentry", "CloudWatch"] },
+    { "label": "Engineering",    "items": ["System Design", "Design Patterns", "Distributed Systems"] },
+    { "label": "Tooling",        "items": ["Jira", "Confluence", "Opsgenie"] }
+  ],
+  "experience": [
+    {
+      "company": "Blink Health",
+      "title": "Senior Software Engineer",
+      "period": "July 2025 – Present",
+      "location": "Bengaluru, Karnataka",
+      "current": true,
+      "bullets": [
+        "Migrated IVR service authentication from Google OAuth 2.0 to Okta OAuth 2.0, enabling seamless SSO across BlinkRx and VCO with zero production bugs post-release.",
+        "Led OTP service migration to AWS-native infrastructure (Pinpoint/EUS/SES), achieving 5% improvement in OTP conversion rate and establishing first AWS EUS/SES implementation at Blink.",
+        "Designed EventBridge and CloudWatch monitoring infrastructure for OTP service; documentation adopted as org-wide reference by other teams.",
+        "Implemented Row-Level Security (RLS) proof-of-concept and reusable multi-tenancy SDK for RxOS flows — first RLS implementation at Blink — preventing unauthorized data access across tenant boundaries.",
+        "Contributed to Ecomm Monolith deprecation, migrating database tables and services to modern backend and unblocking sign-in feature development.",
+        "Built custom New Relic MCP server enabling natural language observability queries, adopted org-wide; combined with on-call automation, saves ~78 hours annually."
+      ]
+    },
+    {
+      "company": "Toast",
+      "title": "Software Engineer – 2",
+      "period": "Nov 2022 – July 2025",
+      "location": "Bengaluru, Karnataka",
+      "current": false,
+      "bullets": [
+        "Led KYC/KYB migration to Alloy by coordinating directly with external vendors on API specifications and workflows, improving auto pass rate from 40% to 80%.",
+        "Automated bank account verification for merchants by integrating with Plaid via open banking integration, increasing verification success rate by 30%.",
+        "Designed and implemented a data ingestion pipeline from DynamoDB to an internal data platform using Apache Pulsar. Defined topic structures, schemas, and Protobuf contracts.",
+        "Migrated Worldpay APIs from v1 to v3 using a plug-and-play architecture with feature flag support, allowing seamless client integration without changes.",
+        "Automated on-call workflows using Google Apps Script, reducing manual effort by 20%. Integrated Splunk, Opsgenie, and Jira to ensure SOX compliance.",
+        "Led an initiative to stabilize flaky tests and optimize CI pipelines, resulting in a 25% reduction in build time."
+      ]
+    },
+    {
+      "company": "Bajaj Finance",
+      "title": "Sr. Software Engineer",
+      "period": "July 2020 – Oct 2022",
+      "location": "Pune, Maharashtra",
+      "current": false,
+      "bullets": [
+        "Built EMI Card sourcing service from the ground up as part of a monolith-to-microservice migration, handling 500 req/sec.",
+        "Integrated Azure Application Insights and created automated alerting workflows using Power Automate, eliminating manual monitoring.",
+        "Established CI/CD pipeline setup using Azure DevOps, enabling faster deployments and setting a blueprint for other teams.",
+        "Developed internal NuGet library encapsulating observability metrics, standardizing logging and tracing across services.",
+        "Created Angular-based dashboard to monitor and trace customer EMI card journey details for internal teams."
+      ]
+    },
+    {
+      "company": "Flow Edge",
+      "title": "Intern",
+      "period": "May 2019 – July 2019",
+      "location": "Bengaluru, Karnataka",
+      "current": false,
+      "bullets": [
+        "Developed a live reporting tool for company announcements by web scraping BSE using Selenium in Python.",
+        "Built a GUI application using Tkinter to reconcile daily trade orders with user inputs."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "IIT Roorkee",
+      "degree": "B.Tech, Chemical Engineering",
+      "period": "2016 – 2020",
+      "location": "Roorkee",
+      "detail": "CGPA: 7.28/10"
+    },
+    {
+      "institution": "Sadar Alam Memorial School",
+      "degree": "Twelfth",
+      "period": "2015",
+      "location": "Nalanda",
+      "detail": "90.6/100"
+    },
+    {
+      "institution": "Jean Paul's High School",
+      "degree": "Tenth",
+      "period": "2013",
+      "location": "Ara",
+      "detail": "CGPA: 10/10"
+    }
+  ],
+  "extracurricular": [
+    { "title": "Executive Member", "org": "NSS IIT Roorkee",         "period": "2017–20" },
+    { "title": "Joint Secretary",  "org": "Cognizance, IIT Roorkee", "period": "2018–19" },
+    { "title": "Runner up",        "org": "CHESS Dept. Cricket",      "period": "2018"    }
+  ]
+}

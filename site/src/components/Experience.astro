@@ -1,51 +1,11 @@
 ---
-const jobs = [
-  {
-    company: 'Blink Health',
-    title: 'Senior Software Engineer',
-    period: 'Jul 2025 – Present',
-    location: 'Remote',
-    current: true,
-    bullets: [],
-  },
-  {
-    company: 'Toast',
-    title: 'Software Engineer 2',
-    period: 'Nov 2022 – Jul 2025',
-    location: 'Remote',
-    current: false,
-    bullets: [
-      'Built identity platform features including SSO, OAuth 2.0 flows, and MFA across Toast\'s restaurant POS ecosystem.',
-      'Led data migration initiatives for payment credentials and user account consolidation.',
-      'Improved auth service reliability and reduced on-call incidents through observability improvements (New Relic, Datadog, Splunk).',
-    ],
-  },
-  {
-    company: 'Bajaj Finance',
-    title: 'Sr. Software Engineer',
-    period: 'Jul 2020 – Oct 2022',
-    location: 'Pune, India',
-    current: false,
-    bullets: [
-      'Engineered backend services for consumer lending workflows handling millions of applications.',
-      'Implemented RLS-based data isolation and Okta-integrated SSO for internal platforms.',
-      'Built event-driven pipelines using Apache Pulsar and Apache Camel for payment processing.',
-    ],
-  },
-  {
-    company: 'Flow Edge',
-    title: 'Software Engineering Intern',
-    period: 'May 2019 – Jul 2019',
-    location: 'India',
-    current: false,
-    bullets: [],
-  },
-];
+import data from '../data/resume.json';
+const { experience } = data;
 ---
 <section id="experience" class="container">
   <p class="section-label">Experience</p>
   <div class="jobs">
-    {jobs.map(job => (
+    {experience.map(job => (
       <article class:list={['job', { current: job.current }]}>
         <div class="job-header">
           <div class="job-left">
@@ -80,14 +40,8 @@ const jobs = [
     padding: 1.4rem 1.5rem;
     transition: border-left-color 0.2s, box-shadow 0.2s;
   }
-  .job:hover {
-    border-left-color: var(--accent);
-    box-shadow: var(--shadow);
-  }
-  .job.current {
-    border-left-color: var(--accent);
-    background: var(--accent-subtle);
-  }
+  .job:hover { border-left-color: var(--accent); box-shadow: var(--shadow); }
+  .job.current { border-left-color: var(--accent); background: var(--accent-subtle); }
 
   .job-header {
     display: flex;
@@ -95,30 +49,14 @@ const jobs = [
     align-items: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 0;
   }
   .job-header:has(+ .bullets) { margin-bottom: 1rem; }
 
   .job-left { display: flex; flex-direction: column; gap: 0.2rem; }
-  .company {
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.2;
-  }
-  .job-title {
-    font-size: 0.9rem;
-    color: var(--accent);
-    font-weight: 500;
-  }
+  .company { font-weight: 700; font-size: 1rem; color: var(--text); line-height: 1.2; }
+  .job-title { font-size: 0.9rem; color: var(--accent); font-weight: 500; }
 
-  .job-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.15rem;
-    flex-shrink: 0;
-  }
+  .job-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem; flex-shrink: 0; }
   .badge {
     display: inline-block;
     padding: 0.1rem 0.55rem;
@@ -131,15 +69,8 @@ const jobs = [
     border-radius: 999px;
     margin-bottom: 0.2rem;
   }
-  .period {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-  .loc {
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
+  .period { font-size: 0.82rem; color: var(--text-secondary); font-weight: 500; }
+  .loc { font-size: 0.78rem; color: var(--muted); }
 
   .bullets {
     list-style: none;
@@ -167,7 +98,7 @@ const jobs = [
   }
 
   @media (max-width: 500px) {
-    .job { padding: 1.1rem 1.1rem; }
+    .job { padding: 1.1rem; }
     .job-right { align-items: flex-start; }
   }
 </style>

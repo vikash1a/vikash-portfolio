@@ -1,39 +1,15 @@
 ---
-const groups = [
-  {
-    label: 'Languages',
-    skills: ['Kotlin', 'Java', 'TypeScript', 'C++', 'C#'],
-  },
-  {
-    label: 'Databases',
-    skills: ['DynamoDB', 'PostgreSQL'],
-  },
-  {
-    label: 'Cloud & Infra',
-    skills: ['AWS', 'Pinpoint', 'SES', 'EventBridge', 'Apache Pulsar', 'Apache Camel'],
-  },
-  {
-    label: 'Identity & Auth',
-    skills: ['Okta', 'OAuth 2.0', 'SSO', 'RLS', 'MFA'],
-  },
-  {
-    label: 'Observability',
-    skills: ['New Relic', 'Datadog', 'Splunk', 'Sentry', 'CloudWatch'],
-  },
-  {
-    label: 'Engineering',
-    skills: ['System Design', 'Design Patterns', 'Distributed Systems'],
-  },
-];
+import data from '../data/resume.json';
+const { skills } = data;
 ---
 <section id="skills" class="container">
   <p class="section-label">Skills</p>
   <div class="groups">
-    {groups.map(g => (
+    {skills.map(g => (
       <div class="group">
         <p class="group-label">{g.label}</p>
         <div class="pills">
-          {g.skills.map(s => <span class="pill">{s}</span>)}
+          {g.items.map(s => <span class="pill">{s}</span>)}
         </div>
       </div>
     ))}
@@ -72,9 +48,5 @@ const groups = [
     font-weight: 500;
     transition: background 0.12s, border-color 0.12s, color 0.12s;
   }
-  .pill:hover {
-    background: var(--accent-subtle);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .pill:hover { background: var(--accent-subtle); border-color: var(--accent); color: var(--accent); }
 </style>

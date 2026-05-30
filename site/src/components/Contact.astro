@@ -1,5 +1,7 @@
 ---
+import data from '../data/resume.json';
 const base = import.meta.env.BASE_URL;
+const p = data.personal;
 ---
 <section id="contact" class="container">
   <p class="section-label">Contact</p>
@@ -9,17 +11,17 @@ const base = import.meta.env.BASE_URL;
       <p>Open to senior / staff backend roles and interesting distributed systems problems.</p>
     </div>
     <div class="contact-links">
-      <a href="mailto:vikash1a2b3c@gmail.com" class="link-row">
+      <a href={`mailto:${p.email}`} class="link-row">
         <span class="link-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         </span>
-        <span>vikash1a2b3c@gmail.com</span>
+        <span>{p.email}</span>
       </a>
-      <a href="https://linkedin.com/in/vikash-sinha-583124151" target="_blank" rel="noopener" class="link-row">
+      <a href={`https://${p.linkedin}`} target="_blank" rel="noopener" class="link-row">
         <span class="link-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </span>
-        <span>linkedin.com/in/vikash-sinha-583124151</span>
+        <span>{p.linkedin}</span>
       </a>
       <a href={`${base}/Resume_Vikash_Sinha.pdf`} target="_blank" rel="noopener" class="link-row dl">
         <span class="link-icon">
@@ -43,24 +45,9 @@ const base = import.meta.env.BASE_URL;
     gap: 2.5rem;
     align-items: start;
   }
-  .contact-text h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.4rem;
-    letter-spacing: -0.01em;
-  }
-  .contact-text p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    flex-shrink: 0;
-  }
+  .contact-text h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+  .contact-text p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.65rem; flex-shrink: 0; }
   .link-row {
     display: flex;
     align-items: center;
@@ -84,11 +71,7 @@ const base = import.meta.env.BASE_URL;
     color: var(--muted);
     transition: background 0.15s, border-color 0.15s, color 0.15s;
   }
-  .link-row:hover .link-icon {
-    background: var(--accent-subtle);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .link-row:hover .link-icon { background: var(--accent-subtle); border-color: var(--accent); color: var(--accent); }
   .dl { color: var(--accent); font-weight: 600; }
   .dl .link-icon { background: var(--accent-subtle); border-color: var(--accent); color: var(--accent); }
 

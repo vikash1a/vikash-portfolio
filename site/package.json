@@ -6,7 +6,9 @@
     "node": ">=20.3.0"
   },
   "scripts": {
+    "predev": "mkdir -p src/data && cp ../resume/data.json src/data/resume.json",
     "dev": "astro dev",
+    "prebuild": "mkdir -p src/data && cp ../resume/data.json src/data/resume.json",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
