@@ -6,11 +6,12 @@
   font-type: "PT Sans",
   continue-header: "false",
   name: [#d.personal.name],
-  address: [#d.personal.location],
+  address: [],
   lastupdated: "false",
   pagecount: "false",
   date: "2026-05-31",
   contacts: (
+    (text: d.personal.location, link: ""),
     (text: d.personal.phone,    link: "tel:" + d.personal.phone.replace(" ", "")),
     (text: d.personal.email,    link: "mailto:" + d.personal.email),
     (text: d.personal.linkedin, link: "https://" + d.personal.linkedin),
@@ -18,17 +19,24 @@
 
   // ── Left sidebar (1/3) ───────────────────────────────────────────────────
   left: [
-    #section("Skills")
-    #for group in d.skills {
-      oneline-title-item(
-        title: group.label,
-        content: [#group.items.join(", ")]
-      )
-    }
-
-    #v(10pt)
     #section("About")
     #descript[#d.personal.bio]
+
+    #v(10pt)
+    #section("Skills")
+    #for group in d.skills {
+      let items = group.items
+      oneline-title-item(
+        title: group.label,
+        content: [#items.slice(0, calc.min(3, items.len())).join(", ")]
+      )
+      if items.len() > 3 {
+        oneline-title-item(
+          title: "",
+          content: [#items.slice(3).join(", ")]
+        )
+      }
+    }
 
     #v(10pt)
     #section("Education")

@@ -3,7 +3,7 @@ import data from '../data/resume.json';
 const { experience } = data;
 ---
 <section id="experience" class="container">
-  <p class="section-label">Experience</p>
+  <p class="section-label">💼 Experience</p>
   <div class="jobs">
     {experience.map(job => (
       <article class:list={['job', { current: job.current }]}>
@@ -14,8 +14,8 @@ const { experience } = data;
           </div>
           <div class="job-right">
             {job.current && <span class="badge">Current</span>}
-            <span class="period">{job.period}</span>
-            <span class="loc">{job.location}</span>
+            <span class="period">📅 {job.period}</span>
+            <span class="loc">📍 {job.location}</span>
           </div>
         </div>
         {job.bullets.length > 0 && (

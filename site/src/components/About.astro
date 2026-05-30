@@ -1,22 +1,25 @@
 ---
 import data from '../data/resume.json';
 const { bio } = data.personal;
-const expYears = new Date().getFullYear() - 2019;
+const expYears = new Date().getFullYear() - 2020;
 ---
 <section id="about" class="container">
-  <p class="section-label">About</p>
+  <p class="section-label">👋 About</p>
   <div class="about-grid">
     <p class="bio">{bio}</p>
     <ul class="highlights">
       <li>
+        <span class="hi-icon">⚡</span>
         <span class="hi-num">{expYears}+</span>
         <span class="hi-label">Years of experience</span>
       </li>
       <li>
+        <span class="hi-icon">🏢</span>
         <span class="hi-num">3</span>
         <span class="hi-label">Companies in prod</span>
       </li>
       <li>
+        <span class="hi-icon">🔥</span>
         <span class="hi-num">∞</span>
         <span class="hi-label">On-call incidents survived</span>
       </li>
@@ -40,6 +43,7 @@ const expYears = new Date().getFullYear() - 2019;
   }
   .highlights { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; flex-shrink: 0; }
   .highlights li { display: flex; flex-direction: column; align-items: flex-end; }
+  .hi-icon { font-size: 1.1rem; line-height: 1; margin-bottom: 0.15rem; }
   .hi-num { font-size: 1.75rem; font-weight: 800; line-height: 1; color: var(--text); letter-spacing: -0.03em; }
   .hi-label { font-size: 0.75rem; color: var(--muted); font-weight: 500; text-align: right; margin-top: 0.15rem; }
 
