@@ -1,75 +1,189 @@
 ---
 const base = import.meta.env.BASE_URL;
 ---
-<header>
-  <div class="container">
-    <div class="hero">
-      <h1>Vikash Sinha</h1>
-      <p class="title">Senior Software Engineer</p>
-      <p class="location">Bengaluru, Karnataka</p>
-    </div>
-    <nav>
+
+<div class="topbar-spacer"></div>
+<nav class="topbar" id="topbar">
+  <div class="topbar-inner container">
+    <span class="topbar-name">Vikash Sinha</span>
+    <div class="topbar-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <a href={`${base}/Resume_Vikash_Sinha.pdf`} class="resume-btn" target="_blank" rel="noopener">Resume PDF</a>
-    </nav>
+      <a href={`${base}/Resume_Vikash_Sinha.pdf`} class="topbar-resume" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Senior Software Engineer</p>
+      <h1>Vikash Sinha</h1>
+      <p class="hero-sub">
+        Building high-scale identity &amp; payments systems.<br />
+        6+ years across healthtech and fintech.
+      </p>
+      <p class="hero-location">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Bengaluru, Karnataka
+      </p>
+      <div class="hero-ctas">
+        <a href={`${base}/Resume_Vikash_Sinha.pdf`} class="btn-primary" target="_blank" rel="noopener">View Resume</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
   </div>
 </header>
 
-<style>
-  header {
-    padding: 3rem 0 2rem;
+<script>
+  const topbar = document.getElementById('topbar');
+  const spacer = document.querySelector('.topbar-spacer') as HTMLElement;
+  const THRESHOLD = 80;
+  function update() {
+    const stuck = window.scrollY > THRESHOLD;
+    topbar?.classList.toggle('scrolled', stuck);
+    if (spacer) spacer.style.height = stuck ? '0px' : '0px';
   }
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+</script>
+
+<style>
+  .topbar-spacer { height: 0; }
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.85rem 0;
+    background: rgba(250, 250, 250, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .topbar.scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom-color: var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .topbar-inner {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .topbar-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  .topbar.scrolled .topbar-name { opacity: 1; pointer-events: auto; }
+  .topbar-links {
+    display: flex;
+    align-items: center;
     gap: 1.5rem;
   }
-  .hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 0.35rem;
-  }
-  .title {
-    font-size: 1.1rem;
-    color: var(--accent-light);
+  .topbar-links a {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
     font-weight: 500;
-    margin-bottom: 0.2rem;
   }
-  .location {
-    font-size: 0.9rem;
+  .topbar-links a:hover { color: var(--accent); }
+  .topbar-resume {
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.82rem !important;
+    color: var(--text) !important;
+    font-weight: 600 !important;
+    background: var(--bg-white);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .topbar-resume:hover {
+    border-color: var(--accent);
+    color: var(--accent) !important;
+    background: var(--accent-subtle);
+  }
+
+  header {
+    padding: 7rem 0 4.5rem;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-inner { display: flex; align-items: flex-start; }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 500px;
+    margin-bottom: 0.75rem;
+  }
+  .hero-location {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.875rem;
     color: var(--muted);
+    margin-bottom: 2rem;
   }
-  nav {
+  .hero-location svg { flex-shrink: 0; color: var(--muted); }
+  .hero-ctas {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
+    gap: 0.75rem;
+  }
+  .btn-primary {
+    display: inline-flex;
     align-items: center;
-  }
-  nav a {
-    font-size: 0.9rem;
-    color: var(--muted);
-    transition: color 0.15s;
-  }
-  nav a:hover { color: var(--text); text-decoration: none; }
-  .resume-btn {
-    padding: 0.35rem 0.9rem;
-    border: 1px solid var(--accent);
-    border-radius: 4px;
-    color: var(--accent-light) !important;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: background 0.15s, color 0.15s;
-  }
-  .resume-btn:hover {
+    padding: 0.6rem 1.4rem;
     background: var(--accent);
-    color: #fff !important;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 7px;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.4rem;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 7px;
+    background: transparent;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); transform: translateY(-1px); }
+
+  @media (max-width: 600px) {
+    .topbar-links a:not(.topbar-resume) { display: none; }
+    header { padding: 5.5rem 0 3rem; }
   }
 </style>

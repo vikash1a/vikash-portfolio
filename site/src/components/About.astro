@@ -1,20 +1,75 @@
 ---
 ---
 <section id="about" class="container">
-  <h2>About</h2>
-  <p class="bio">
-    Identity and payments engineer with 6+ years building high-scale backend systems across
-    healthtech and fintech. Focused on auth, data migration, and platform reliability.
-    I work across distributed systems, cloud infrastructure, and developer tooling to ship
-    software that handles real load.
-  </p>
+  <p class="section-label">About</p>
+  <div class="about-grid">
+    <p class="bio">
+      I build the systems that sit behind authentication, payments, and critical data flows —
+      the kind of code that can't go down. My work spans distributed backend services,
+      cloud infrastructure on AWS, and developer tooling for teams shipping fast.
+    </p>
+    <ul class="highlights">
+      <li>
+        <span class="hi-num">6+</span>
+        <span class="hi-label">Years of experience</span>
+      </li>
+      <li>
+        <span class="hi-num">3</span>
+        <span class="hi-label">Companies in prod</span>
+      </li>
+      <li>
+        <span class="hi-num">∞</span>
+        <span class="hi-label">On-call incidents survived</span>
+      </li>
+    </ul>
+  </div>
 </section>
 
 <style>
+  section { background: var(--bg); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+  }
   .bio {
     font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 560px;
+  }
+  .highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex-shrink: 0;
+  }
+  .highlights li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .hi-num {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
     color: var(--text);
-    max-width: 640px;
-    line-height: 1.75;
+    letter-spacing: -0.03em;
+  }
+  .hi-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 500;
+    text-align: right;
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 600px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .highlights { flex-direction: row; gap: 2rem; }
+    .highlights li { align-items: flex-start; }
+    .hi-label { text-align: left; }
   }
 </style>

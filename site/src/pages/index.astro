@@ -17,7 +17,7 @@ import '../styles/global.css';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <Header />
@@ -29,23 +29,29 @@ import '../styles/global.css';
     </main>
     <footer>
       <div class="container">
-        <span>Vikash Sinha &middot; Bengaluru, India</span>
+        <span>Vikash Sinha · Bengaluru, India</span>
+        <span>Built with Astro · Hosted on GitHub Pages</span>
       </div>
     </footer>
   </body>
 </html>
 
 <style>
-  main { padding-bottom: 4rem; }
+  main { padding-bottom: 0; }
   footer {
     padding: 1.5rem 0;
+    background: var(--bg);
     border-top: 1px solid var(--border);
   }
   footer .container {
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 0 1.5rem;
-    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.78rem;
     color: var(--muted);
   }
 </style>
