@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'resume/**.typ'
+      - 'resume/formats/**.typ'
 
 jobs:
   compile:
@@ -18,13 +18,19 @@ jobs:
       - name: Install Typst
         uses: typst-community/setup-typst@v3
 
-      - name: Compile resume
-        run: typst compile resume/Resume_Vikash_Sinha.typ resume/Resume_Vikash_Sinha.pdf
+      - name: Compile all formats
+        run: |
+          typst compile resume/formats/basic-resume/resume.typ   resume/formats/basic-resume/resume.pdf
+          typst compile resume/formats/modernpro-cv/resume.typ   resume/formats/modernpro-cv/resume.pdf
+          typst compile resume/formats/custom/resume.typ         resume/formats/custom/resume.pdf
 
-      - name: Commit compiled PDF
+      - name: Promote basic-resume as primary download
+        run: cp resume/formats/basic-resume/resume.pdf resume/Resume_Vikash_Sinha.pdf
+
+      - name: Commit compiled PDFs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add resume/Resume_Vikash_Sinha.pdf
-          git diff --cached --quiet || git commit -m "chore: recompile resume PDF"
+          git add resume/
+          git diff --cached --quiet || git commit -m "chore: recompile resume PDFs"
           git push

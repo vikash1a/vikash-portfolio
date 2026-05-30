@@ -8,11 +8,14 @@ Portfolio website + resume repo for Vikash Sinha.
 vikash-portfolio/
 ├── plan.md                           # implementation plan — read this first
 ├── resume/
-│   ├── Resume_Vikash_Sinha.typ       # Typst source — edit this to update resume
-│   └── Resume_Vikash_Sinha.pdf       # auto-compiled by CI, do not edit manually
+│   ├── Resume_Vikash_Sinha.pdf       # primary download (basic-resume, auto-promoted by CI)
+│   └── formats/
+│       ├── basic-resume/             # clean single-column (primary format)
+│       ├── modernpro-cv/             # left sidebar layout
+│       └── custom/                   # custom Typst, no package dependency
 ├── site/                             # Astro portfolio site (to be built)
 └── .github/workflows/
-    ├── compile-resume.yml            # compiles .typ → PDF on push
+    ├── compile-resume.yml            # compiles all format .typ files on push
     └── deploy-site.yml               # builds + deploys site to GitHub Pages (to be created)
 ```
 
