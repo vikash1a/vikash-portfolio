@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'resume/formats/**.typ'
+      - 'resume/data.json'
 
 jobs:
   compile:
@@ -20,9 +21,9 @@ jobs:
 
       - name: Compile all formats
         run: |
-          typst compile resume/formats/basic-resume/resume.typ   resume/formats/basic-resume/resume.pdf
-          typst compile resume/formats/modernpro-cv/resume.typ   resume/formats/modernpro-cv/resume.pdf
-          typst compile resume/formats/custom/resume.typ         resume/formats/custom/resume.pdf
+          typst compile --root . resume/formats/basic-resume/resume.typ   resume/formats/basic-resume/resume.pdf
+          typst compile --root . resume/formats/modernpro-cv/resume.typ   resume/formats/modernpro-cv/resume.pdf
+          typst compile --root . resume/formats/custom/resume.typ         resume/formats/custom/resume.pdf
 
       - name: Promote modernpro-cv as primary download
         run: cp resume/formats/modernpro-cv/resume.pdf resume/Resume_Vikash_Sinha.pdf
