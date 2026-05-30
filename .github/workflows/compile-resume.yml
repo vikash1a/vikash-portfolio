@@ -6,6 +6,7 @@ on:
     paths:
       - 'resume/formats/**.typ'
       - 'resume/data.json'
+  workflow_dispatch:
 
 jobs:
   compile:
