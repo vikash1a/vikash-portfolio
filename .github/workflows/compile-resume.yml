@@ -24,8 +24,8 @@ jobs:
           typst compile resume/formats/modernpro-cv/resume.typ   resume/formats/modernpro-cv/resume.pdf
           typst compile resume/formats/custom/resume.typ         resume/formats/custom/resume.pdf
 
-      - name: Promote basic-resume as primary download
-        run: cp resume/formats/basic-resume/resume.pdf resume/Resume_Vikash_Sinha.pdf
+      - name: Promote modernpro-cv as primary download
+        run: cp resume/formats/modernpro-cv/resume.pdf resume/Resume_Vikash_Sinha.pdf
 
       - name: Commit compiled PDFs
         run: |
