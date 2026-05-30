@@ -1,0 +1,30 @@
+name: Compile Resume
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'resume/**.typ'
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v3
+
+      - name: Compile resume
+        run: typst compile resume/Resume_Vikash_Sinha.typ resume/Resume_Vikash_Sinha.pdf
+
+      - name: Commit compiled PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add resume/Resume_Vikash_Sinha.pdf
+          git diff --cached --quiet || git commit -m "chore: recompile resume PDF"
+          git push
