@@ -92,7 +92,6 @@ export default function Header() {
           <div className="hero-text">
             <p className="hero-eyebrow">{p.title}</p>
             <h1>{p.name}</h1>
-            <p className="hero-sub">{p.bio}</p>
             <p className="hero-location">📍 {p.location}</p>
             <div className="hero-ctas">
               <a href={`${base}Resume_Vikash_Sinha.pdf`} className="btn-primary" target="_blank" rel="noopener noreferrer">View Resume</a>
