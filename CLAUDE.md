@@ -21,6 +21,6 @@ vikash-portfolio/
 
 ## Key context
 
-- Resume uses `@preview/modernpro-cv:1.0.0` Typst template
+- Primary resume format uses `@preview/basic-resume:0.2.2` Typst template
 - Site framework: Astro, hosted on GitHub Pages
 - See `plan.md` for the full step-by-step implementation plan

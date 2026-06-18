@@ -30,6 +30,6 @@ Requires Node 20.3+.
 
 ## Tech
 
-- Resume: [Typst](https://typst.app) with the `modernpro-cv` template
+- Resume: [Typst](https://typst.app) with the `basic-resume` template (and others available in formats)
 - Site: [Astro 4](https://astro.build), static output
 - Hosting: GitHub Pages
