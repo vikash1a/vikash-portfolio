@@ -155,7 +155,8 @@ section { padding: 4.5rem 0; }
   border-bottom: 1px solid var(--border);
   padding: 0 1.5rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0.5rem;
   z-index: 90;
 }
 .mobile-name {

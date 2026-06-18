@@ -76,8 +76,7 @@ export default function Header() {
     <>
       {/* Mobile Top Bar */}
       <div className="mobile-bar">
-        <span className="mobile-name">{p.name}</span>
-        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu" style={{ marginLeft: '-0.25rem' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             {isOpen ? (
               <path d="M18 6 6 18M6 6l12 12" />
@@ -86,6 +85,7 @@ export default function Header() {
             )}
           </svg>
         </button>
+        <span className="mobile-name">{p.name}</span>
       </div>
 
       {/* Sidebar Navigation */}
