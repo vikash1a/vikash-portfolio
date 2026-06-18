@@ -8,7 +8,7 @@ Portfolio website and resume for Vikash Sinha — hosted at [vikash1a.github.io/
 |---|---|
 | `resume/Resume_Vikash_Sinha.pdf` | Latest compiled resume (auto-updated by CI) |
 | `resume/formats/` | Typst source files for each resume layout |
-| `site/` | Astro portfolio site |
+| `site/` | React + Vite portfolio site |
 | `.github/workflows/compile-resume.yml` | Compiles `.typ` → PDF on every push |
 | `.github/workflows/deploy-site.yml` | Builds and deploys site to GitHub Pages |
 
@@ -31,5 +31,5 @@ Requires Node 20.3+.
 ## Tech
 
 - Resume: [Typst](https://typst.app) with the `basic-resume` template (and others available in formats)
-- Site: [Astro 4](https://astro.build), static output
+- Site: React 19 + Vite, static output
 - Hosting: GitHub Pages
