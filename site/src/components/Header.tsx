@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import data from '../data/resume.json';
 
 export default function Header() {
@@ -8,6 +8,19 @@ export default function Header() {
   const p = data.personal;
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const isScrollingToRef = useRef<string | null>(null);
+
+  const handleNavLinkClick = (id: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    setActiveSection(id);
+    isScrollingToRef.current = id;
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const sections = ['about', 'experience', 'skills', 'contact'];
@@ -21,7 +34,15 @@ export default function Header() {
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          const id = entry.target.id;
+          if (isScrollingToRef.current) {
+            if (id === isScrollingToRef.current) {
+              isScrollingToRef.current = null;
+              setActiveSection(id);
+            }
+          } else {
+            setActiveSection(id);
+          }
         }
       });
     };
@@ -35,7 +56,20 @@ export default function Header() {
       }
     });
 
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      if (isScrollingToRef.current) return;
+      // Bottom of page detection (forces active highlighting for Contact)
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
+        setActiveSection('contact');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -62,16 +96,16 @@ export default function Header() {
             <span className="sidebar-title">{p.title}</span>
           </div>
           <div className="sidebar-links">
-            <a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={() => setIsOpen(false)}>
+            <a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={(e) => handleNavLinkClick('about', e)}>
               <span className="nav-bullet">▸</span> About
             </a>
-            <a href="#experience" className={activeSection === 'experience' ? 'active' : ''} onClick={() => setIsOpen(false)}>
+            <a href="#experience" className={activeSection === 'experience' ? 'active' : ''} onClick={(e) => handleNavLinkClick('experience', e)}>
               <span className="nav-bullet">▸</span> Experience
             </a>
-            <a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => setIsOpen(false)}>
+            <a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={(e) => handleNavLinkClick('skills', e)}>
               <span className="nav-bullet">▸</span> Skills
             </a>
-            <a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => setIsOpen(false)}>
+            <a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={(e) => handleNavLinkClick('contact', e)}>
               <span className="nav-bullet">▸</span> Contact
             </a>
           </div>
@@ -95,7 +129,7 @@ export default function Header() {
             <p className="hero-location">📍 {p.location}</p>
             <div className="hero-ctas">
               <a href={`${base}Resume_Vikash_Sinha.pdf`} className="btn-primary" target="_blank" rel="noopener noreferrer">View Resume</a>
-              <a href="#contact" className="btn-ghost">Get in touch</a>
+              <a href="#contact" className="btn-ghost" onClick={(e) => handleNavLinkClick('contact', e)}>Get in touch</a>
             </div>
           </div>
         </div>
