@@ -1,4 +1,5 @@
 import data from '../data/resume.json';
+import { getSkillIcon } from './SkillIcons';
 
 export default function Skills() {
   const { skills } = data;
@@ -12,7 +13,12 @@ export default function Skills() {
             <div className="group" key={idx}>
               <p className="group-label">{g.label}</p>
               <div className="pills">
-                {g.items.map((s, sIdx) => <span className="pill" key={sIdx}>{s}</span>)}
+                {g.items.map((s, sIdx) => (
+                  <span className="pill" key={sIdx}>
+                    {getSkillIcon(s)}
+                    {s}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
