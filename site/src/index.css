@@ -182,12 +182,6 @@ section { padding: 4.5rem 0; }
   z-index: 95;
 }
 
-/* Layout Offsets for Left Sidebar */
-@media (min-width: 769px) {
-  header, main, footer {
-    padding-left: 260px;
-  }
-}
 
 /* Hero Section */
 header {
@@ -538,5 +532,12 @@ footer .container {
   footer .container {
     margin: 0 auto;
     padding: 0 1.5rem;
+  }
+}
+
+/* Layout Offsets for Left Sidebar */
+@media (min-width: 769px) {
+  header, main, footer {
+    padding-left: 260px;
   }
 }
