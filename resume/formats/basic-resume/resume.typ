@@ -47,6 +47,7 @@
   #for bullet in job.bullets [
     - #bullet
   ]
+  #v(0.6em)
 ]
 
 == Skills
@@ -65,6 +66,7 @@
     degree: degree-text,
     location: if "location" in school { school.location } else { none },
   )
+  #v(0.6em)
 ]
 
 == Extra-curricular
