@@ -8,7 +8,7 @@ Portfolio website + resume repo for Vikash Sinha.
 vikash-portfolio/
 ├── plan.md                           # implementation plan — read this first
 ├── resume/
-│   ├── Resume_Vikash_Sinha.pdf       # primary download (basic-resume, auto-promoted by CI)
+│   ├── Resume_Vikash_Sinha.pdf       # primary download (modernpro-cv, auto-promoted by CI)
 │   └── formats/
 │       ├── basic-resume/             # clean single-column (primary format)
 │       ├── modernpro-cv/             # left sidebar layout
@@ -21,6 +21,6 @@ vikash-portfolio/
 
 ## Key context
 
-- Primary resume format uses `@preview/basic-resume:0.2.2` Typst template
+- Primary resume format uses `@preview/modernpro-cv:1.0.0` Typst template
 - Site framework: React + Vite, hosted on GitHub Pages
 - See `plan.md` for the full step-by-step implementation plan
