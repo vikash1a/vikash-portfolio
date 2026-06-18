@@ -7,6 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Generated files
+src/data/resume.json
+public/Resume_Vikash_Sinha.pdf
+
 node_modules
 dist
 dist-ssr

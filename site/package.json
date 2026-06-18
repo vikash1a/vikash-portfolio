@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predev": "mkdir -p src/data && cp ../resume/data.json src/data/resume.json",
+    "predev": "mkdir -p src/data && cp ../resume/data.json src/data/resume.json && mkdir -p public && cp ../resume/Resume_Vikash_Sinha.pdf public/",
     "dev": "vite",
-    "prebuild": "mkdir -p src/data && cp ../resume/data.json src/data/resume.json",
+    "prebuild": "mkdir -p src/data && cp ../resume/data.json src/data/resume.json && mkdir -p public && cp ../resume/Resume_Vikash_Sinha.pdf public/",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
