@@ -1,6 +1,28 @@
 #import "@preview/modernpro-cv:1.0.0": *
 #let d = json("../../data.json")
 
+#let clean-inst(inst) = {
+  if inst == "Indian Institute of Technology, Roorkee" {
+    "IIT Roorkee"
+  } else {
+    inst
+  }
+}
+
+#let clean-loc(inst, loc) = {
+  if inst == "Indian Institute of Technology, Roorkee" {
+    ""
+  } else if loc != none {
+    loc.split(",").at(0).trim()
+  } else {
+    ""
+  }
+}
+
+#let clean-period(period) = {
+  period.replace(" – ", "–")
+}
+
 #set page(footer: align(right)[
   #text(size: 8pt, fill: rgb("#7f8c8d"))[v#d.version]
 ])
@@ -28,27 +50,20 @@
     #v(10pt)
     #section("Skills")
     #for group in d.skills {
-      let items = group.items
       oneline-title-item(
         title: group.label,
-        content: [#items.slice(0, calc.min(3, items.len())).join(", ")]
+        content: [#group.items.join(", ")]
       )
-      if items.len() > 3 {
-        oneline-title-item(
-          title: "",
-          content: [#items.slice(3).join(", ")]
-        )
-      }
     }
 
     #v(10pt)
     #section("Education")
     #for (i, edu) in d.education.enumerate() {
       education(
-        institution: [#edu.institution],
+        institution: [#clean-inst(edu.institution)],
         major: [#edu.degree],
-        date: edu.period,
-        location: edu.location,
+        date: clean-period(edu.period),
+        location: clean-loc(edu.institution, edu.location),
         description: [#edu.detail],
       )
       if i < d.education.len() - 1 { v(5pt) }
