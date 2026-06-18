@@ -12,18 +12,24 @@ export default function About() {
         <ul className="highlights">
           <li>
             <span className="hi-icon">⚡</span>
-            <span className="hi-num">{expYears}+</span>
-            <span className="hi-label">Years of experience</span>
+            <div className="hi-content">
+              <span className="hi-num">{expYears}+</span>
+              <span className="hi-label">Years of experience</span>
+            </div>
           </li>
           <li>
             <span className="hi-icon">🏢</span>
-            <span className="hi-num">3</span>
-            <span className="hi-label">Companies in prod</span>
+            <div className="hi-content">
+              <span className="hi-num">3</span>
+              <span className="hi-label">Companies in prod</span>
+            </div>
           </li>
           <li>
             <span className="hi-icon">🔥</span>
-            <span className="hi-num">∞</span>
-            <span className="hi-label">On-call incidents survived</span>
+            <div className="hi-content">
+              <span className="hi-num">∞</span>
+              <span className="hi-label">On-call incidents</span>
+            </div>
           </li>
         </ul>
       </div>
