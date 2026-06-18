@@ -78,24 +78,24 @@
   ],
   "education": [
     {
-      "institution": "IIT Roorkee",
+      "institution": "Indian Institute of Technology, Roorkee",
       "degree": "B.Tech, Chemical Engineering",
       "period": "2016 – 2020",
-      "location": "Roorkee",
+      "location": "Roorkee, Uttarakhand",
       "detail": "CGPA: 7.28/10"
     },
     {
-      "institution": "Sadar Alam Memorial School",
+      "institution": "Sadar Alam Memorial Secondary School",
       "degree": "Twelfth",
       "period": "2015",
-      "location": "Nalanda",
-      "detail": "90.6/100"
+      "location": "Nalanda, Bihar",
+      "detail": "Percentage: 90.6/100"
     },
     {
       "institution": "Jean Paul's High School",
       "degree": "Tenth",
       "period": "2013",
-      "location": "Ara",
+      "location": "Ara, Bihar",
       "detail": "CGPA: 10/10"
     }
   ],
