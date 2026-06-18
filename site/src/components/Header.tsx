@@ -1,12 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import data from '../data/resume.json';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const base = import.meta.env.BASE_URL;
   const p = data.personal;
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const sections = ['about', 'experience', 'skills', 'contact'];
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px', // detects intersecting when section occupies center of viewport
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        observer.observe(el);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -32,16 +62,16 @@ export default function Header() {
             <span className="sidebar-title">{p.title}</span>
           </div>
           <div className="sidebar-links">
-            <a href="#about" onClick={() => setIsOpen(false)}>
+            <a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={() => setIsOpen(false)}>
               <span className="nav-bullet">▸</span> About
             </a>
-            <a href="#experience" onClick={() => setIsOpen(false)}>
+            <a href="#experience" className={activeSection === 'experience' ? 'active' : ''} onClick={() => setIsOpen(false)}>
               <span className="nav-bullet">▸</span> Experience
             </a>
-            <a href="#skills" onClick={() => setIsOpen(false)}>
+            <a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => setIsOpen(false)}>
               <span className="nav-bullet">▸</span> Skills
             </a>
-            <a href="#contact" onClick={() => setIsOpen(false)}>
+            <a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => setIsOpen(false)}>
               <span className="nav-bullet">▸</span> Contact
             </a>
           </div>
