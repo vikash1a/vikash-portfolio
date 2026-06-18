@@ -4,6 +4,7 @@ import About from '../components/About.astro';
 import Experience from '../components/Experience.astro';
 import Skills from '../components/Skills.astro';
 import Contact from '../components/Contact.astro';
+import data from '../data/resume.json';
 import '../styles/global.css';
 ---
 
@@ -29,7 +30,7 @@ import '../styles/global.css';
     </main>
     <footer>
       <div class="container">
-        <span>Vikash Sinha · Bengaluru, India</span>
+        <span>Vikash Sinha · Bengaluru, India · v{data.version}</span>
         <span>Built with Astro · Hosted on GitHub Pages</span>
       </div>
     </footer>

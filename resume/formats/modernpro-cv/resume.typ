@@ -1,6 +1,9 @@
 #import "@preview/modernpro-cv:1.0.0": *
-
 #let d = json("../../data.json")
+
+#set page(footer: align(right)[
+  #text(size: 8pt, fill: rgb("#7f8c8d"))[v#d.version]
+])
 
 #show: cv-double(
   font-type: "PT Sans",

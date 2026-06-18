@@ -1,10 +1,17 @@
-#set document(title: "Vikash Sinha — Resume")
-#set page(paper: "a4", margin: (x: 1.5cm, y: 1.2cm))
+#let d = json("../../data.json")
+
+#set document(title: d.personal.name + " — Resume")
+#set page(
+  paper: "a4",
+  margin: (x: 1.5cm, y: 1.2cm),
+  footer: align(right)[
+    #text(size: 8pt, fill: rgb("#7f8c8d"))[v#d.version]
+  ]
+)
+
 #set text(font: "Helvetica", size: 10pt, lang: "en")
 #set par(leading: 0.55em)
 #set list(indent: 1em, body-indent: 0.5em)
-
-#let d = json("../../data.json")
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 

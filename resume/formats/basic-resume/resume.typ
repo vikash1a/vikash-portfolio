@@ -19,6 +19,10 @@
   }
 }
 
+#set page(footer: align(right)[
+  #text(size: 8pt, fill: rgb("#7f8c8d"))[v#d.version]
+])
+
 #show: resume.with(
   author: d.personal.name,
   location: d.personal.location,
